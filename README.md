@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Coin Flip Farcaster Frame
 
-## Getting Started
+![](./public/ss1.png)
+![](./public/ss2.png)
 
-First, run the development server:
+A Farcaster Frame that lets you flip a coin. Pretty simple.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Deploying Your Own Copy
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To deploy your own copy of this frame, deploy this app to the platform of your choice and configure the following environment variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `NEXT_PUBLIC_BASE_URL`: Set this variable to your deployment URL _after_ deploying the app. For example, if you deploy to Vercel, set this to `https://your-app-name.vercel.app` after deploying.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `NEYNAR_API_KEY`: You can set this to `NEYNAR_ONCHAIN_KIT` if you don't have a [Neynar](https://neynar.com/) API key. If you have one, use that of course.
 
-## Learn More
+That's it! You should be good to go.
 
-To learn more about Next.js, take a look at the following resources:
+Your frame URL will be `https://your-app-name.vercel.app/` or whatever platform you deploy to. Basically, it's the `/` route.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+___ 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you don't want to deploy your own, you can use my deployment at https://coin-flip-farcaster-frame.vercel.app/ as your frame URL and it should work just fine if you include it in your cast.
