@@ -7,18 +7,17 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const NEXT_PUBLIC_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function getResponse(req: NextRequest): Promise<NextResponse> {
-  let accountAddress: string | undefined = '';
-
+export async function POST(req: NextRequest): Promise<Response> {
   const body: FrameRequest = await req.json();
-  const { isValid, message } = await getFrameMessage(body, {
+
+  const { isValid } = await getFrameMessage(body, {
     neynarApiKey: process.env.NEYNAR_API_KEY,
   });
 
-  if (isValid) {
-    accountAddress = message.interactor.verified_accounts[0];
+  if (!isValid) {
+    return new NextResponse('Invalid request', { status: 400 });
   }
-  
+
   const coinToss = Math.random() > 0.5 ? 'heads' : 'tails';
 
   return new NextResponse(
@@ -32,10 +31,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       post_url: `${NEXT_PUBLIC_URL}/api/frame`,
     })
   );
-}
-
-export async function POST(req: NextRequest): Promise<Response> {
-  return getResponse(req);
 }
 
 export const dynamic = 'force-dynamic';
