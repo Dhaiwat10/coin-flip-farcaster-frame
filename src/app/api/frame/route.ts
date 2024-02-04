@@ -24,7 +24,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     getFrameHtmlResponse({
       buttons: [
         {
-          label: 'Play again',
+          label: 'Flip Again!',
         },
       ],
       image: `${NEXT_PUBLIC_URL}/${coinToss}.png`,
